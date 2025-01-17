@@ -1,0 +1,396 @@
+PART 1
+
+CREATE DATABASE COMPANYC;
+Query OK, 1 row affected (0.02 sec)
+
+mysql> USE COMPANYC;
+Database changed
+mysql> CREATE TABLE CLIENT_MASTER (CLIENTNO INT(9),NAME CHAR(10),ADDRESS CHAR(10),CITY CHAR(10),STATE CHAR(10),BALDUE DECIMAL(10));
+Query OK, 0 rows affected, 1 warning (0.03 sec)
+ 
+QUESTION 1.
+
+
+mysql> INSERT INTO CLIENT_MASTER VALUES ('127','KOFFI','NER23','NERO','AUSTRALIA','4000');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO CLIENT_MASTER VALUES ('126','KRAUS','NAI234','NAIROBI','KENYA','6600');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO CLIENT_MASTER VALUES ('125','KASTIDE','KOM45','KOMYER','SUDAN','7000');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO CLIENT_MASTER VALUES ('124','NATTY','ENG76','ENGLAND','EUROPE','4500');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO CLIENT_MASTER VALUES ('123','ALICE','NYC23','NEWYORK','UNITED STATE','5000');
+Query OK, 1 row affected, 1 warning (0.00 sec)
+
+mysql> SELECT *FROM CLIENT_MASTER;
++----------+---------+---------+---------+------------+--------+
+| CLIENTNO | NAME    | ADDRESS | CITY    | STATE      | BALDUE |
++----------+---------+---------+---------+------------+--------+
+|      |
+|      127 | KOFFI   | NER23   | NERO    | AUSTRALIA  |   4000 |
+|      126 | KRAUS   | NAI234  | NAIROBI | KENYA      |   6600 |
+|      125 | KASTIDE | KOM45   | KOMYER  | SUDAN      |   7000 |
+|      124 | NATTY   | ENG76   | ENGLAND | EUROPE     |   4500 |
+|      123 | ALICE   | NYC23   | NEWYORK | UNITED STA |   5000 |
++----------+---------+---------+---------+------------+--------+
+10 rows in set (0.00 sec)
+
+
+
+
+
+
+QUESTION 3.
+
+
+mysql> UPDATE CLIENT_MASTER SET BALDUE=5100 WHERE CLIENTNO=123;
+Query OK, 1 row affected (0.02 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> SELECT *FROM CLIENT_MASTER;
++----------+---------+---------+---------+------------+--------+
+| CLIENTNO | NAME    | ADDRESS | CITY    | STATE      | BALDUE |
++----- |
+|      127 | KOFFI   | NER23   | NERO    | AUSTRALIA  |   4000 |
+|      126 | KRAUS   | NAI234  | NAIROBI | KENYA      |   6600 |
+|      125 | KASTIDE | KOM45   | KOMYER  | SUDAN      |   7000 |
+|      124 | NATTY   | ENG76   | ENGLAND | EUROPE     |   4500 |
+|      123 | ALICE   | NYC23   | NEWYORK | UNITED STA |   5100 |
++----------+---------+---------+---------+------------+--------+
+10 rows in set (0.00 sec)
+
+QUESTION 4.
+
+mysql> RENAME  TABLE CLIENT_MASTER TO CLIENT12;
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> SELECT *FROM CLIENT12;
++----------+---------+---------+---------+------------+--------+
+| CLIENTNO | NAME    | ADDRESS | CITY    | STATE      | BALDUE |
++----------+---------+---------+---------+------------+--------+
+|       |
+|      127 | KOFFI   | NER23   | NERO    | AUSTRALIA  |   4000 |
+|      126 | KRAUS   | NAI234  | NAIROBI | KENYA      |   6600 |
+|      125 | KASTIDE | KOM45   | KOMYER  | SUDAN      |   7000 |
+|      124 | NATTY   | ENG76   | ENGLAND | EUROPE     |   4500 |
+|      123 | ALICE   | NYC23   | NEWYORK | UNITED STA |   5100 |
++----------+---------+---------+---------+------------+--------+
+10 rows in set (0.01 sec)
+
+
+
+PART 2
+QUESTION 6.
+A.
+
+mysql> CREATE TABLE DEPARTMENT (DEPARTMENTID INT(11),COURSES CHAR(10),LECTURE CHAR(10),CREDITS INT(10),STUDENTNAMES CHAR(10));
+Query OK, 0 rows affected, 2 warnings (0.02 sec)
+
+mysql> INSERT INTO DEPARTMENT VALUES ('123','BUSFUNCTION','KAYITARE','20','NATASHA');
+Query OK, 1 row affected, 1 warning (0.00 sec)
+
+mysql> INSERT INTO DEPARTMENT VALUES ('124','STATISTICS','RWAMUCYO','15','KAMY');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO DEPARTMENT VALUES ('134','BATABASE','THEO','10','LIOR');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO DEPARTMENT VALUES ('100','DATASTRUCT','NOELLA','5','STIVE');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO DEPARTMENT VALUES ('145','CODING,'MUKANSANGA','30','DARLENE');
+    '> INSERT INTO DEPARTMENT VALUES ('145','CODING,'MUKANSANGA','30','DARLENE');
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'MUKANSANGA','30','DARLENE');
+INSERT INTO DEPARTMENT VALUES ('145','CODING,'MUKAN' at line 1
+mysql> INSERT INTO DEPARTMENT VALUES ('145','CODING','MUKANSANGA','30','DARLENE');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> SELECT *FROM DEPARTMENT;
++--------------+------------+------------+---------+--------------+
+| DEPARTMENTID | COURSES    | LECTURE    | CREDITS | STUDENTNAMES |
++--------------+------------+------------+---------+--------------+
+|          123 | BUSFUNCTIO | KAYITARE   |      20 | NATASHA      |
+|          124 | STATISTICS | RWAMUCYO   |      15 | KAMY         |
+|          134 | BATABASE   | THEO       |      10 | LIOR         |
+|          100 | DATASTRUCT | NOELLA     |       5 | STIVE        |
+|          145 | CODING     | MUKANSANGA |      30 | DARLENE      |
++--------------+------------+------------+---------+--------------+
+5 rows in set (0.00 sec)
+
+CREATE TABLE EMPLOYEES (EMPLOYEEID INT(10),EMPLOYEENAMES CHAR(10),EMPLOYEELOCATION CHAR(10),GENDER CHAR(4),AGE INT(2));
+Query OK, 0 rows affected, 2 warnings (0.02 sec)
+
+mysql> INSERT INTO EMPLOYEES VALUES ('33','NEEMA','KICUKIRO','F','19'),
+    -> INSERT INTO EMPLOYEES VALUES ('33','NEEMA','KICUKIRO','F','19');
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'INSERT INTO EMPLOYEES VALUES ('33','NEEMA','KICUKIRO','F','19')' at line 2
+mysql> INSERT INTO EMPLOYEES VALUES ('33','NEEMA','KICUKIRO','F','19');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO EMPLOYEES VALUES ('38','NELSON','RUBAVU','M','23');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO EMPLOYEES VALUES ('563','HUGO','MUHANGA','M','45');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO EMPLOYEES VALUES ('643','VENUST','KARONGI','M','32');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO EMPLOYEES VALUES ('345','BELISE','MUSANZE','F','20');
+Query OK, 1 row affected (0.00 sec)
+
+
+
+B.
+
++------------+---------------+------------------+--------+------+
+| EMPLOYEEID | EMPLOYEENAMES | EMPLOYEELOCATION | GENDER | AGE  |
++------------+---------------+------------------+--------+------+
+|         33 | NEEMA         | KICUKIRO         | F      |   19 |
+|         38 | NELSON        | RUBAVU           | M      |   23 |
+|        563 | HUGO          | MUHANGA          | M      |   45 |
+|        643 | VENUST        | KARONGI          | M      |   32 |
+|        345 | BELISE        | MUSANZE          | F      |   20 |
++------------+---------------+------------------+--------+------+
+
+
+C.
+mysql> SELECT *FROM EMPLOYEES LEFT JOIN DEPARTMENT ON EMPLOYEES.EMPLOYEENAMES = DEPARTMENT.STUDENTNAMES;
++------------+---------------+------------------+--------+------+--------------+---------+---------+---------+--------------+
+| EMPLOYEEID | EMPLOYEENAMES | EMPLOYEELOCATION | GENDER | AGE  | DEPARTMENTID | COURSES | LECTURE | CREDITS | STUDENTNAMES |
++------------+---------------+------------------+--------+------+--------------+---------+---------+---------+--------------+
+|         33 | NEEMA         | KICUKIRO         | F      |   19 |         NULL | NULL    | NULL    |    NULL | NULL         |
+|         38 | NELSON        | RUBAVU           | M      |   23 |         NULL | NULL    | NULL    |    NULL | NULL         |
+|        563 | HUGO          | MUHANGA          | M      |   45 |         NULL | NULL    | NULL    |    NULL | NULL         |
+|        643 | VENUST        | KARONGI          | M      |   32 |         NULL | NULL    | NULL    |    NULL | NULL         |
+|        345 | BELISE        | MUSANZE          | F      |   20 |         NULL | NULL    | NULL    |    NULL | NULL         |
++------------+---------------+------------------+--------+------+--------------+---------+---------+---------+--------------+
+
+
+
+D.
+
+mysql> SELECT *FROM EMPLOYEES LEFT JOIN DEPARTMENT ON EMPLOYEES.EMPLOYEENAMES = DEPARTMENT.STUDENTNAMES;
++------------+---------------+------------------+--------+------+--------------+---------+---------+---------+--------------+
+| EMPLOYEEID | EMPLOYEENAMES | EMPLOYEELOCATION | GENDER | AGE  | DEPARTMENTID | COURSES | LECTURE | CREDITS | STUDENTNAMES |
++------------+---------------+------------------+--------+------+--------------+---------+---------+---------+--------------+
+|         33 | NEEMA         | KICUKIRO         | F      |   19 |         NULL | NULL    | NULL    |    NULL | NULL         |
+|         38 | NELSON        | RUBAVU           | M      |   23 |         NULL | NULL    | NULL    |    NULL | NULL         |
+|        563 | HUGO          | MUHANGA          | M      |   45 |         NULL | NULL    | NULL    |    NULL | NULL         |
+|        643 | VENUST        | KARONGI          | M      |   32 |         NULL | NULL    | NULL    |    NULL | NULL         |
+|        345 | BELISE        | MUSANZE          | F      |   20 |         NULL | NULL    | NULL    |    NULL | NULL         |
++------------+---------------+------------------+--------+------+--------------+---------+---------+---------+--------------+
+
+
+
+QUESTION 7.
+
+mysql> CREATE TABLE STUDENT(STUDENTID VARCHAR(5),FULLNAMES VARCHAR(25),GENDER VARCHAR(6),AGE INT(2),DEPARTMENT VARCHAR(30));
+Query OK, 0 rows affected, 2 warnings (0.02 sec)
+
+1.
+
+mysql> LIST OF STUDENT SELECT *FROM STUDENT;
++-----------+------------+--------+------+------------+
+| STUDENTID | FULLNAMES  | GENDER | AGE  | DEPARTMENT |
++-----------+------------+--------+------+------------+
+|      2244 | NELLON KAI | M      |   19 | BIT        |
+|      5562 | FILLI SILV | F      |   21 | ACC        |
+|       556 | FISTON LEO | M      |   25 | FIN        |
+|      2230 | KAMY SIFA  | F      |   27 | LOG        |
++-----------+------------+--------+------+------------+
+4 rows in set (0.00 sec)
+
+
+2.
+
+LIST OF GIRLS mysql> SELECT *FROM STUDENT WHERE GENDER=F;
+ERROR 1054 (42S22): Unknown column 'F' in 'where clause'
+mysql> SELECT *FROM STUDENT WHERE GENDER = 'F';
++-----------+------------+--------+------+------------+
+| STUDENTID | FULLNAMES  | GENDER | AGE  | DEPARTMENT |
++-----------+------------+--------+------+------------+
+|      5562 | FILLI SILV | F      |   21 | ACC        |
+|      2230 | KAMY SIFA  | F      |   27 | LOG        |
+|      2320 | NANA KEZA  | F      |   20 | TRANS      |
++-----------+------------+--------+------+------------+
+3 rows in set (0.00 sec)
+
+
+3.
+
+LIST OF BOYS mysql> SELECT *FROM STUDENT WHERE GENDER = 'M';
++-----------+------------+--------+------+------------+
+| STUDENTID | FULLNAMES  | GENDER | AGE  | DEPARTMENT |
++-----------+------------+--------+------+------------+
+|      2244 | NELLON KAI | M      |   19 | BIT        |
+|       556 | FISTON LEO | M      |   25 | FIN        |
++-----------+------------+--------+------+------------+
+2 rows in set (0.00 sec)
+
+4.
+
+mysql> INSERT INTO STUDENT VALUES ('2244','NELLON KAI','M','19','BIT');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO STUDENT VALUES ('5562','FILLI SILVIE','F','21','ACC');
+Query OK, 1 row affected, 1 warning (0.00 sec)
+
+mysql> INSERT INTO STUDENT VALUES ('556','FISTON LEO','M','25','FIN');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO STUDENT VALUES ('2230','KAMY SIFA','F','27','LOG');
+Query OK, 1 row affected (0.00 sec)
+
+
+5.
+
+mysql> DELETE FROM STUDENT WHERE AGE<20;
+Query OK, 1 row affected (0.02 sec)
+
+
+PART C.
+
+QUESTION 9.
+
+A.
+
+mysql> SELECT EMPLOYEE_ID,FIRST_NAME,LAST_NAME,SALARY FROM EMPLOYEE;
++-------------+------------+-----------+--------+
+| EMPLOYEE_ID | FIRST_NAME | LAST_NAME | SALARY |
++-------------+------------+-----------+--------+
+|         556 | NANA       | BILLY     |   4000 |
+|         676 | FRERE      | BRUCE     |   7000 |
+|         676 | FRERE      | BRUCE     |   3000 |
++-------------+------------+-----------+--------+
+3 rows in set (0.00 sec)
+
+
+
+B.
+
+mysql> SELECT *FROM EMPLOYEE WHERE MANAGER_ID = 100;
++-------------+------------+-----------+-------+--------------+------------+--------+--------+----------------+------------+---------------+
+| EMPLOYEE_ID | FIRST_NAME | LAST_NAME | EMAIL | PHONE_NUMBER | HIRE_DATE  | JOB_ID | SALARY | COMMISSION_PCT | MANAGER_ID | DEPARTMENT_ID |
++-------------+------------+-----------+-------+--------------+------------+--------+--------+----------------+------------+---------------+
+|         676 | FRERE      | BRUCE     | HUMM  |      7980658 | 0000-00-00 |     45 |   3000 |           3067 |        100 |            88 |
++-------------+------------+-----------+-------+--------------+------------+--------+--------+----------------+------------+---------------+
+1 row in set (0.00 sec)
+
+
+C.
+
+
+mysql> SELECT FIRST_NAME,LAST_NAME FROM EMPLOYEE WHERE SALARY <= 4800;
++------------+-----------+
+| FIRST_NAME | LAST_NAME |
++------------+-----------+
+| NANA       | BILLY     |
+| FRERE      | BRUCE     |
++------------+-----------+
+2 rows in set (0.00 sec)
+
+
+D.
+
+mysql> SELECT LAST_NAME FROM EMPLOYEE WHERE LAST_NAME = AUSTIN;
+ERROR 1054 (42S22): Unknown column 'AUSTIN' in 'where clause'
+NO AUSTIN IN EMPLOYEES LAST_NAME.
+
+E.
+
+
+mysql> SELECT FIRST_NAME,LAST_NAME FROM EMPLOYEE WHERE DEPARTMENT_ID ='60','70','80';
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ','70','80'' at line 1
+mysql> SELECT FIRST_NAME,LAST_NAME FROM EMPLOYEE WHERE DEPARTMENT_ID IN ('60','70','80');
++------------+-----------+
+| FIRST_NAME | LAST_NAME |
++------------+-----------+
+| FRERE      | BRUCE     |
++------------+-----------+
+1 row in set (0.00 sec)
+
+
+
+
+QUESTION 10.
+
+A.
+
+mysql> INSERT INTO SALE VALUES('435','KADRA','APPLE','4500','30-FEB-08');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO SALE VALUES('340,'FIFI','LOI','4600','06-FEB-04');
+    '>
+    '> INSERT INTO SALE VALUES('340,'FIFI','LOI','4600','06-FEB-04');
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'FIFI','LOI','4600','06-FEB-04');
+
+INSERT INTO SALE VALUES('340,'FIFI','LOI','460' at line 1
+mysql> INSERT INTO SALE VALUES('340,'FIFI','LOI','4600','06-FEB-04');
+    '> INSERT INTO SALE VALUES('435','KADRA','APPLE','4500','30-FEB-08');
+    '> INSERT INTO SALE VALUES('435','KADRA','APPLE','4500','30-FEB-08');
+    '> INSERT INTO SALE VALUES('676','NELI','LV','5600','21-JULY-21');
+    '> INSERT INTO SALE VALUES('676','NELI','LV','5600','21-JULY-21'');
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'FIFI','LOI','4600','06-FEB-04');
+INSERT INTO SALE VALUES('435','KADRA','APPLE','' at line 1
+mysql> INSERT INTO SALE VALUES ('231','FIFI','HUY','3490','21-FEB-04');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> SELECT *FROM SALE;
++---------+-----------+---------+-------------+------------+
+| SALESNO | SALESNAME | BRANCH  | SALESAMOUNT | DOB        |
++---------+-----------+---------+-------------+------------+
+|      12 | JOHN      | INYANGE |        3400 | 21-DEC-09  |
+|     567 | NATTY     | GUCCI   |        3780 | 23-JULY-09 |
+|     676 | NELI      | LV      |        5600 | 12-JUNE-09 |
+|     435 | KADRA     | APPLE   |        4500 | 30-FEB-08  |
+|     231 | FIFI      | HUY     |        3490 | 21-FEB-04  |
++---------+-----------+---------+-------------+------------+
+5 rows in set (0.00 sec)
+
+
+B.
+
+mysql> SELECT SUM (SALESAMOUNT) FROM SALE;
+ERROR 1630 (42000): FUNCTION companyc.SUM does not exist. Check the 'Function Name Parsing and Resolution' section in the Reference Manual
+mysql> SELECT SUM (SALESAMOUNT) FROM SALE ;
+ERROR 1630 (42000): FUNCTION companyc.SUM does not exist. Check the 'Function Name Parsing and Resolution' section in the Reference Manual
+mysql> SELECT SUM(SALESAMOUNT) FROM SALE ;
++------------------+
+| SUM(SALESAMOUNT) |
++------------------+
+|            20770 |
++------------------+
+1 row in set (0.02 sec)
+
+
+C.
+
+ysql>  SELECT AVG(SALESAMOUNT) FROM SALE;
++------------------+
+| AVG(SALESAMOUNT) |
++------------------+
+|        4154.0000 |
++------------------+
+1 row in set (0.00 sec)
+
+
+D.
+
+
+mysql> SELECT SALESNAME,DOB FROM SALE WHERE DOB = '21-DEC-09';
++-----------+-----------+
+| SALESNAME | DOB       |
++-----------+-----------+
+| JOHN      | 21-DEC-09 |
++-----------+-----------+
+1 row in set (0.00 sec)
+
+
+
+
+
+
